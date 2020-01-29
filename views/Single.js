@@ -11,17 +11,18 @@ const Single = (props) => {
   const filename = props.navigation.getParam('filename', 'Image not found');
   console.log('Image filename: ' + filename);
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>
+    <View style={{}}>
+      <Text style={{}}>
         {props.navigation.getParam('title', 'No title')}
       </Text>
-      <Image style={styles.image}
+      <Image style={{}}
              source={{uri: mediaURL + filename}}
       />
     </View>
   );
 };
 
+/*
 const styles = StyleSheet.create({
   title: {
     flex: 1
@@ -39,5 +40,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
 });
+*/
 
 export default Single;

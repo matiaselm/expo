@@ -45,7 +45,7 @@ const Profile = (props) => {
     props.navigation.navigate('Auth');
   };
   return (
-    <View style={styles.container}>
+    <View style={{}}>
       <Text>{getUsername()}</Text>
       <Text>{getUserEmail()}</Text>
       <Button title="Logout!" onPress={signOutAsync} />
@@ -53,6 +53,7 @@ const Profile = (props) => {
   );
 };
 
+/*
 const styles = StyleSheet.create({
   container: {
       flex: 1,
@@ -62,5 +63,5 @@ const styles = StyleSheet.create({
       paddingTop: 20,
   },
 });
-
+*/
 export default Profile;
