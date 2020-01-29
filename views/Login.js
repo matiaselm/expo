@@ -46,9 +46,9 @@ const Login = (props) => {
   };
 
   return (
-    <View style={{}}>
+    <View style={styles.container}>
       <Text>Login</Text>
-      <View style={{}}>
+      <View style={styles.form}>
         <FormTextInput
           autoCapitalize='none'
           placeholder='username'
@@ -66,7 +66,7 @@ const Login = (props) => {
       </View>
 
       <Text>Register</Text>
-      <View style={{}}>
+      <View style={styles.form}>
         <FormTextInput
           autoCapitalize='none'
           placeholder='username'
@@ -92,7 +92,6 @@ const Login = (props) => {
   );
 };
 
-/*
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -107,7 +106,7 @@ const styles = StyleSheet.create({
     width: 250
   },
 });
-*/
+
 Login.propTypes = {
   navigation: PropTypes.object,
 };
