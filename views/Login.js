@@ -1,10 +1,12 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button, AsyncStorage} from 'react-native';
+import {AsyncStorage, View} from 'react-native';
+import {StatusBar} from "react-native-web";
 import PropTypes from 'prop-types';
 import {login, register} from "../hooks/APIHooks";
 import useSignUpForm from "../hooks/LoginHooks";
 import useRegisterForm from "../hooks/RegisterHooks";
 import FormTextInput from "../components/FormTextInput";
+import {Header, Body, Title, Text, Button, ThemeProvider, ThemeConsumer} from "react-native-elements";
 
 /*
 Login is the View taking care of the user management
@@ -46,9 +48,9 @@ const Login = (props) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text>Login</Text>
-      <View style={styles.form}>
+    <View style={{marginTop: StatusBar.currentHeight}}>
+      <Text style={{textAlign:'center'}}>Login</Text>
+      <ThemeProvider>
         <FormTextInput
           autoCapitalize='none'
           placeholder='username'
@@ -63,10 +65,10 @@ const Login = (props) => {
           value={inputs.password}
         />
         <Button title="Sign in!" onPress={signInAsync}/>
-      </View>
+      </ThemeProvider>
 
       <Text>Register</Text>
-      <View style={styles.form}>
+      <ThemeProvider>
         <FormTextInput
           autoCapitalize='none'
           placeholder='username'
@@ -87,11 +89,12 @@ const Login = (props) => {
           value={regInputs.password}
         />
         <Button title="Register!" onPress={registerAsync}/>
-      </View>
+      </ThemeProvider>
     </View>
   );
 };
 
+/*
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -106,6 +109,7 @@ const styles = StyleSheet.create({
     width: 250
   },
 });
+*/
 
 Login.propTypes = {
   navigation: PropTypes.object,
