@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import {Card, ListItem, Button, Text, Image} from 'react-native-elements';
 
 /*
 Single.js shows the one picture that was clicked at the homepage.
@@ -11,17 +12,27 @@ const Single = (props) => {
   const filename = props.navigation.getParam('filename', 'Image not found');
   console.log('Image filename: ' + filename);
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>
-        {props.navigation.getParam('title', 'No title')}
-      </Text>
-      <Image style={styles.image}
-             source={{uri: mediaURL + filename}}
-      />
-    </View>
+    <Card
+      wrapperStyle={{height: '100%'}}
+      title={props.navigation.getParam('title', 'No title')}
+    >
+      <Image source={{uri: mediaURL + filename}}
+             style={{
+               width: '100%',
+               height: '90%',
+             }}/>
+    </Card>
   );
 };
 
+/*    Add this to card below image
+
+      <Text>
+        {props.navigation.getParam('description', 'No Description')}
+      </Text>
+ */
+
+/*
 const styles = StyleSheet.create({
   title: {
     flex: 1
@@ -39,5 +50,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
 });
+*/
 
 export default Single;
