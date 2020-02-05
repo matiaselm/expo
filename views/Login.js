@@ -13,6 +13,7 @@ Login is the View taking care of the user management
  */
 
 const Login = (props) => {
+  let signInCheck = false;
   const {handleUsernameChange, handlePasswordChange, inputs} = useSignUpForm();
   const {handleUsernameReg, handlePasswordReg, handleEmailReg, regInputs} = useRegisterForm();
 
@@ -47,52 +48,64 @@ const Login = (props) => {
     }
   };
 
-  return (
-    <View style={{marginTop: StatusBar.currentHeight}}>
-      <Text style={{textAlign:'center'}}>Login</Text>
-      <ThemeProvider>
-        <FormTextInput
-          autoCapitalize='none'
-          placeholder='username'
-          onChangeText={handleUsernameChange}
-          value={inputs.username}
-        />
-        <FormTextInput
-          autoCapitalize='none'
-          placeholder='password'
-          secureTextEntry={true}
-          onChangeText={handlePasswordChange}
-          value={inputs.password}
-        />
-        <Button title="Sign in!" onPress={signInAsync}/>
-      </ThemeProvider>
+  if(signInCheck){
 
-      <Text>Register</Text>
-      <ThemeProvider>
-        <FormTextInput
-          autoCapitalize='none'
-          placeholder='username'
-          onChangeText={handleUsernameReg}
-          value={regInputs.username}
-        />
-        <FormTextInput
-          autoCapitalize='none'
-          placeholder='email'
-          onChangeText={handleEmailReg}
-          value={regInputs.email}
-        />
-        <FormTextInput
-          autoCapitalize='none'
-          placeholder='password'
-          secureTextEntry={true}
-          onChangeText={handlePasswordReg}
-          value={regInputs.password}
-        />
-        <Button title="Register!" onPress={registerAsync}/>
-      </ThemeProvider>
-    </View>
-  );
+  }else{
+
+  }
+
 };
+
+const signIn = () => {
+  return (<View style={{marginTop: StatusBar.currentHeight}}>
+  <Text style={{textAlign: 'center'}}>Login</Text>
+  <ThemeProvider>
+    <FormTextInput
+      autoCapitalize='none'
+      placeholder='username'
+      onChangeText={handleUsernameChange}
+      value={inputs.username}
+    />
+    <FormTextInput
+      autoCapitalize='none'
+      placeholder='password'
+      secureTextEntry={true}
+      onChangeText={handlePasswordChange}
+      value={inputs.password}
+    />
+    <Button title="Sign in!" onPress={signInAsync}/>
+    <Button title="Don't have an account? Register here" onPress={signIn(signInCheck)}/>
+  </ThemeProvider>
+</View>);
+};
+
+  const register = () => {
+    return ( <View>
+    <Text>Register</Text>
+    <ThemeProvider>
+      <FormTextInput
+        autoCapitalize='none'
+        placeholder='username'
+        onChangeText={handleUsernameReg}
+        value={regInputs.username}
+      />
+      <FormTextInput
+        autoCapitalize='none'
+        placeholder='email'
+        onChangeText={handleEmailReg}
+        value={regInputs.email}
+      />
+      <FormTextInput
+        autoCapitalize='none'
+        placeholder='password'
+        secureTextEntry={true}
+        onChangeText={handlePasswordReg}
+        value={regInputs.password}
+      />
+      <Button title="Register!" onPress={registerAsync}/>
+      <Button title="Already have an account? Sign in here" onPress={signIn(signInCheck)}/>
+    </ThemeProvider>
+  </View> );};
 
 /*
 const styles = StyleSheet.create({
