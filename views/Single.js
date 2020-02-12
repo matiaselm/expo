@@ -14,6 +14,7 @@ import PropTypes from 'prop-types';
 import AsyncImage from '../components/AsyncImage';
 import {Dimensions} from 'react-native';
 import {mediaURL} from '../constants/urlConst';
+import {Video} from 'expo-av';
 
 const deviceHeight = Dimensions.get('window').height;
 
@@ -29,6 +30,7 @@ const Single = (props) => {
       <Content>
         <Card>
           <CardItem>
+            {file.media_type === 'image' &&
             <AsyncImage
               style={{
                 width: '100%',
@@ -37,6 +39,19 @@ const Single = (props) => {
               spinnerColor='#777'
               source={{uri: mediaURL + file.filename}}
             />
+            }{file.media_type === 'video' &&
+          <Video
+            source={{uri: mediaURL + file.filename}}
+            rate={1.0}
+            volume={1.0}
+            isMuted={false}
+            resizeMode="contain"
+            shouldPlay
+            isLooping
+            useNativeControls
+            style={{width: '100%', height: deviceHeight / 2}}
+          />
+          }
           </CardItem>
           <CardItem>
             <Left>

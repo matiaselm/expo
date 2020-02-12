@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="578ab66e-21eb-4746-980b-10c21541f2c3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/AsyncImage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/constants/urlConst.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/constants/validationConst.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/validation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/Upload.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/FormTextInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormTextInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/List.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/List.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contexts/MediaContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/contexts/MediaContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/APIHooks.js" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/APIHooks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/LoginHooks.js" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/LoginHooks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigators/Navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigators/Navigator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/AuthLoading.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/AuthLoading.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/Profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/Single.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/Single.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
