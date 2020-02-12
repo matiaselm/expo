@@ -119,8 +119,8 @@ const Login = (props) => {
               onChangeText={handlePasswordChange}
             />
           </Item>
-          <Button full onPress={signInAsync}><Text>Sign in!</Text></Button>
-          <Button dark full onPress={() => {
+          <Button title={''} full onPress={signInAsync}><Text>Sign in!</Text></Button>
+          <Button title={''} dark full onPress={() => {
             setToggleForm(false);
           }}>
             <Text>or Register</Text>

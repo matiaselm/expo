@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Container,
   Content,
@@ -14,17 +14,30 @@ import PropTypes from 'prop-types';
 import AsyncImage from '../components/AsyncImage';
 import {Dimensions} from 'react-native';
 import {mediaURL} from '../constants/urlConst';
+import {getUser} from '../hooks/APIHooks';
 import {Video} from 'expo-av';
 
 const deviceHeight = Dimensions.get('window').height;
 
 console.log('dh', deviceHeight);
 
-
 const Single = (props) => {
   const {navigation} = props;
-  console.log('Singel navi', navigation.state);
+  const [owner, setOwner] = useState({});
+  // console.log('Single navi', navigation.state);
   const file = navigation.state.params.file;
+
+  const getOwner = async () => {
+    const data = await getUser(file.user_id);
+    setOwner(data);
+    console.log('owner', owner);
+  };
+
+  //useEffect to make sure we only call getOwner once
+  useEffect(() => {
+    getOwner();
+  }, []);
+
   return (
     <Container>
       <Content>
@@ -39,7 +52,8 @@ const Single = (props) => {
               spinnerColor='#777'
               source={{uri: mediaURL + file.filename}}
             />
-            }{file.media_type === 'video' &&
+            }
+            {file.media_type === 'video' &&
           <Video
             source={{uri: mediaURL + file.filename}}
             rate={1.0}
@@ -49,7 +63,13 @@ const Single = (props) => {
             shouldPlay
             isLooping
             useNativeControls
-            style={{width: '100%', height: deviceHeight / 2}}
+            style={{
+              width: '100%',
+              height: deviceHeight / 2,
+            }}
+            onError={(e) => {
+              console.log('video error', e)
+            }}
           />
           }
           </CardItem>
@@ -59,7 +79,17 @@ const Single = (props) => {
               <Body>
                 <H3>{file.title}</H3>
                 <Text>{file.description}</Text>
-                <Text>By {file.user_id}</Text>
+              </Body>
+            </Left>
+          </CardItem>
+          <CardItem>
+            <Left>
+              <Icon name='person'/>
+              <Body>
+                <Text>By {owner.username} ({owner.email})</Text>
+                {owner.full_name &&
+                <Text>{owner.full_name}</Text>
+                }
               </Body>
             </Left>
           </CardItem>

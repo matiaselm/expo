@@ -6,6 +6,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import Home from '../views/Home';
 import Profile from '../views/Profile';
 import Single from '../views/Single';
+import MyFiles from '../views/MyFiles';
 import AuthLoading from '../views/AuthLoading';
 import Login from '../views/Login';
 import Upload from '../views/Upload';
@@ -66,6 +67,9 @@ const StackNavigator = createStackNavigator(
     },
     Single: {
       screen: Single,
+    },
+    MyFiles: {
+      screen: MyFiles,
     },
     Logout: {
       screen: Login,
