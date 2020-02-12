@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
-import {ActivityIndicator, AsyncStorage, StatusBar, View} from 'react-native';
-import PropTypes from "prop-types";
-
-/*
-AuthLoading is shown when the app is loading
- */
+import {
+  ActivityIndicator,
+  AsyncStorage,
+  StatusBar,
+  View,
+} from 'react-native';
+import PropTypes from 'prop-types';
 
 const bootstrapAsync = async (props) => {
   const getToken = async () => {
@@ -14,7 +15,7 @@ const bootstrapAsync = async (props) => {
     // screen will be unmounted and thrown away.
     console.log('token', userToken);
     props.navigation.navigate(userToken ? 'App' : 'Auth');
-  }
+  };
   useEffect(() => {
     getToken();
   }, []);

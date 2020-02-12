@@ -1,18 +1,17 @@
 import React from 'react';
-import List from "../components/List";
-import {View} from "react-native";
-
-/*
-Home screen is the View holding the whole list of posts
- */
+import List from '../components/List';
+import PropTypes from 'prop-types';
 
 const Home = (props) => {
-    const {navigation} = props;
-    return (
-        <View>
-            <List navigation={navigation}/>
-        </View>
-    );
+  // console.log('Home', props);
+  const {navigation} = props;
+  return (
+    <List navigation={navigation}></List>
+  );
+};
+
+Home.propTypes = {
+  navigation: PropTypes.object,
 };
 
 export default Home;
