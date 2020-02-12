@@ -1,55 +1,62 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Card, ListItem, Button, Text, Image} from 'react-native-elements';
+import {
+  Container,
+  Content,
+  Card,
+  CardItem,
+  Left,
+  Body,
+  H3,
+  Icon,
+  Text,
+} from 'native-base';
+import PropTypes from 'prop-types';
+import AsyncImage from '../components/AsyncImage';
+import {Dimensions} from 'react-native';
+import {mediaURL} from '../constants/urlConst';
 
-/*
-Single.js shows the one picture that was clicked at the homepage.
- */
+const deviceHeight = Dimensions.get('window').height;
 
-const mediaURL = "http://media.mw.metropolia.fi/wbma/uploads/";
+console.log('dh', deviceHeight);
+
 
 const Single = (props) => {
-  const filename = props.navigation.getParam('filename', 'Image not found');
-  console.log('Image filename: ' + filename);
+  const {navigation} = props;
+  console.log('Singel navi', navigation.state);
+  const file = navigation.state.params.file;
   return (
-    <Card
-      wrapperStyle={{height: '100%'}}
-      title={props.navigation.getParam('title', 'No title')}
-    >
-      <Image source={{uri: mediaURL + filename}}
-             style={{
-               width: '100%',
-               height: '90%',
-             }}/>
-    </Card>
+    <Container>
+      <Content>
+        <Card>
+          <CardItem>
+            <AsyncImage
+              style={{
+                width: '100%',
+                height: deviceHeight / 2,
+              }}
+              spinnerColor='#777'
+              source={{uri: mediaURL + file.filename}}
+            />
+          </CardItem>
+          <CardItem>
+            <Left>
+              <Icon name='image'/>
+              <Body>
+                <H3>{file.title}</H3>
+                <Text>{file.description}</Text>
+                <Text>By {file.user_id}</Text>
+              </Body>
+            </Left>
+          </CardItem>
+        </Card>
+      </Content>
+    </Container>
   );
 };
 
-/*    Add this to card below image
-
-      <Text>
-        {props.navigation.getParam('description', 'No Description')}
-      </Text>
- */
-
-/*
-const styles = StyleSheet.create({
-  title: {
-    flex: 1
-  },
-  image: {
-    flex: 9,
-    width: 350,
-    height: 400
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 20,
-  },
-});
-*/
+Single.propTypes = {
+  navigation: PropTypes.object,
+  file: PropTypes.object,
+};
 
 export default Single;
