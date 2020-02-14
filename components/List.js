@@ -7,7 +7,7 @@ import ListItem from './ListItem';
 import {MediaContext} from '../contexts/MediaContext';
 import {getAllMedia, getUserMedia} from '../hooks/APIHooks';
 import PropTypes from 'prop-types';
-import {AsyncStorage} from "react-native-web";
+import {AsyncStorage} from "react-native";
 
 const List = (props) => {
   const [media, setMedia] = useContext(MediaContext);
@@ -17,15 +17,18 @@ const List = (props) => {
     try {
       let data = [];
       if (props.mode === 'all') {
+        console.log('getMedia getAllMedia', props.mode);
         data = await getAllMedia();
-      } else {
+      }
+      else if (props.mode === 'myfiles') {
+        console.log('getMedia getUserMedia', props.mode);
         const token = await AsyncStorage.getItem('userToken');
         data = await getUserMedia(token);
       }
       setMedia(data.reverse());
       setLoading(false);
     } catch (e) {
-      console.log(e.message);
+      console.log('getMedia: ', e.message);
     }
   };
 

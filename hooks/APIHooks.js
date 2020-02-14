@@ -60,25 +60,23 @@ const fetchFormData = async (
 
 const getAllMedia = async () => {
   const json = await fetchGET('media/all');
-  const result = await Promise.all(json.files.map(async (item) => {
+  return await Promise.all(json.files.map(async (item) => {
     return await fetchGET('media', item.file_id);
   }));
-  return result;
 };
 
 const getUserMedia = async (token) => {
   console.log('im here', token);
   const json = await fetchGET('media/user', '', token);
-  const result = await Promise.all(json.map(async (item) => {
+  return await Promise.all(json.map(async (item) => {
     return await fetchGET('media', item.file_id);
   }));
-  return result;
 };
 
 const getUser = async (id) => {
   try{
     const token = await AsyncStorage.getItem('userToken');
-    //console.log('getuser token', token);
+    console.log('getuser token', token);
     //console.log('getuser id', id);
     return await fetchGET('users', id, token);
   }catch(e){

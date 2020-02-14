@@ -8,6 +8,7 @@ import {
   Body,
   Button,
   Icon,
+  Right,
 } from 'native-base';
 import {AsyncStorage} from 'react-native';
 import PropTypes from 'prop-types';
@@ -55,6 +56,10 @@ const Profile = (props) => {
     props.navigation.navigate('Auth');
   };
 
+  const showMyFiles = async () => {
+    props.navigation.navigate('MyFiles');
+  };
+
   console.log('ava', mediaURL + user.avatar);
   return (
     <Container>
@@ -86,6 +91,9 @@ const Profile = (props) => {
             <Body>
               <Button full onPress={signOutAsync}>
                 <Text>Logout</Text>
+              </Button>
+              <Button full onPress={showMyFiles}>
+                <Text>Your posts</Text>
               </Button>
             </Body>
           </CardItem>
